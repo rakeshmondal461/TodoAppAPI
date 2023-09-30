@@ -29,7 +29,7 @@ exports.createReminder = (req, res, next) => {
     .save()
     .then(() => {
       res.status(201).json({
-        message: "Post created successfully!",
+        message: "Reminder created successfully!",
         reminder: reminder,
       });
     })
@@ -107,7 +107,7 @@ exports.updateReminder = (req, res, next) => {
       return reminder.save();
     })
     .then((result) => {
-      res.status(200).json({ message: "Task updated!", reminder: result });
+      res.status(200).json({ message: "Reminder updated!", reminder: result });
     })
     .catch((err) => {
       if (!err.statusCode) {
@@ -122,7 +122,7 @@ exports.deleteReminder = (req, res, next) => {
   Reminder.findById(reminderId)
     .then((reminder) => {
       if (!reminder) {
-        const error = new Error("Could not find post.");
+        const error = new Error("Could not find reminder.");
         error.statusCode = 404;
         throw error;
       }

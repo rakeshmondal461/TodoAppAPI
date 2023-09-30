@@ -25,7 +25,7 @@ exports.createTask = (req, res, next) => {
     .save()
     .then(() => {
       res.status(201).json({
-        message: "Post created successfully!",
+        message: "Task created successfully!",
         task: task,
       });
     })
@@ -57,7 +57,7 @@ exports.getTask = (req, res, next) => {
   Task.findById(taskId)
     .then((task) => {
       if (!task) {
-        const error = new Error("Could not find post.");
+        const error = new Error("Could not find task.");
         error.statusCode = 404;
         throw error;
       }
@@ -110,7 +110,7 @@ exports.deleteTask = (req, res, next) => {
   Task.findById(taskId)
     .then((task) => {
       if (!task) {
-        const error = new Error("Could not find post.");
+        const error = new Error("Could not find task.");
         error.statusCode = 404;
         throw error;
       }
